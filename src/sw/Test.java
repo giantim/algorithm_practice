@@ -6,30 +6,22 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        List<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        arr.add(2);
-        arr.add(3);
-        arr.add(4);
-        arr.add(5);
+        int[][] arr1 = new int[2][2];
+        int[][] arr2 = new int[2][2];
 
-        for (Iterator<Integer> iterator = arr.listIterator(); iterator.hasNext();) {
-            Integer it = iterator.next();
-
-            List<Integer> deleteIndexes = new ArrayList<>();
-            for (int i = 0; i < arr.size(); i++) {
-                Integer integer = arr.get(i);
-                if (!integer.equals(it) && integer / it == 1) {
-                    deleteIndexes.add(i);
-                }
-            }
-
-            if (!deleteIndexes.isEmpty()) {
-                deleteIndexes.forEach(arr::remove);
-                iterator.remove();
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                arr1[i][j] = 1;
             }
         }
 
-        System.out.println("finish!");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                arr2[i][j] = arr1[i][j];
+            }
+        }
+
+        arr1[1][1] = 4;
+        System.out.println(arr2[1][1]);
     }
 }
